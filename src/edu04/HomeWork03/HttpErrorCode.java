@@ -4,17 +4,6 @@ import java.util.Scanner;
 
 import static java.lang.System.in;
 
-public class HttpErrorCode {
-    private static final Scanner scan = new Scanner(in);
-
-    public static void main(String[] args) {
-        System.out.println("Enter the error code between 400-409");
-        int errorCode = scan.nextInt();
-        HttpError httpError = HttpError.getByNumber(errorCode);
-        System.out.println("This error code corresponds to " + httpError.errorName);
-    }
-}
-
 enum HttpError {
     $400("Bad Request"),
     $401("Unauthorized"),
@@ -48,5 +37,16 @@ enum HttpError {
             default -> throw new IllegalArgumentException(
                     "There is only 400-409 numbers in the list, " + number + " is out of bounds.");
         };
+    }
+}
+
+public class HttpErrorCode {
+    private static final Scanner scan = new Scanner(in);
+
+    public static void main(String[] args) {
+        System.out.println("Enter the error code between 400-409");
+        int errorCode = scan.nextInt();
+        HttpError httpError = HttpError.getByNumber(errorCode);
+        System.out.println("This error code corresponds to " + httpError.errorName);
     }
 }
