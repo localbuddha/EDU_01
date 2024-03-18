@@ -23,7 +23,7 @@ public class DoWhileLoop {
         while (userResp.equalsIgnoreCase("yes"));
     }
 
-    public static int sumCalc(int[] twoNumbers) {
+    private static int sumCalc(int[] twoNumbers) {
         int sum = 0;
         for (int twoNumber : twoNumbers) {
             sum += twoNumber;
